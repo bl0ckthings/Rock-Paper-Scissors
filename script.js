@@ -1,4 +1,4 @@
-
+// ROCK PAPER SCISSORS WORKING IN CONSOLE ONLY;
 
 const choice = ['rock', 'paper', 'scissors'];
 
