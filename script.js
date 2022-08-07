@@ -9,7 +9,7 @@
 
 // }
 
-
+confirm('Press CTRL + SHIFT + i to open the console and use F5 to refresh before playing !');
 
 function getComputerChoice() {
     let computerNumber = random(3);
