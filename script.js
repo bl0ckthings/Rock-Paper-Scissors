@@ -12,7 +12,7 @@
 confirm('Press CTRL + SHIFT + i to open the console and use F5 to refresh before playing !');
 
 function getComputerChoice() {
-    let computerNumber = random(3);
+    let computerNumber = Math.floor(Math.random() * 3 + 1);
     let computerGuess = ""
     switch (computerNumber) {
         case 1:
@@ -32,7 +32,7 @@ function getComputerChoice() {
 }
 
 
-const computerPlay = getComputerChoice();
+// const computerPlay = getComputerChoice();
 
 
 
@@ -64,6 +64,7 @@ function game() {
     let computerScore = 0;
     let playerTurn = '';
     let computerTurn = '';
+
     // let playerInput = prompt('Choose one among those choices :\nRock\nPaper\nScissors').toLowerCase().trim();
 
 
@@ -73,9 +74,10 @@ function game() {
             var playerInput = prompt('Choose one among those choices :\nRock\nPaper\nScissors').toLowerCase().trim();
         } while (playerInput == '' || playerInput == null)
 
-        computerTurn = computerPlay;
+
         playerTurn = playerInput;
-        roundResult = playRound(playerInput, computerPlay);
+        computerTurn = getComputerChoice();
+        roundResult = playRound(playerTurn, computerTurn);
 
         if (roundResult.includes("You win")) {
             playerScore++;
@@ -104,12 +106,12 @@ function game() {
 
 
 }
-console.log(game(computerPlay));
+console.log(game());
 
 
 
 //  Helper function
 
-function random(Number) {
-    return Math.floor(Math.random() * Number + 1);
-}
+// function random(Number) {
+//     return Math.floor(Math.random() * Number + 1);
+// }
