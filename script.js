@@ -9,10 +9,17 @@
 
 // }
 
+//  Helper function
+
+// function random(Number) {
+//     return Math.floor(Math.random() * Number + 1);
+// }
+
+
 confirm('Press CTRL + SHIFT + i to open the console and use F5 to refresh before playing !');
 
 function getComputerChoice() {
-    let computerNumber = Math.floor(Math.random() * 3 + 1);
+    let computerNumber = Math.floor(Math.random() * 3 + 1); // J'ai supprimé la fonction ci dessus et j'ai implémenter le Math.random directement dans une variable dans mon switch statement.
     let computerGuess = ""
     switch (computerNumber) {
         case 1:
@@ -32,7 +39,7 @@ function getComputerChoice() {
 }
 
 
-// const computerPlay = getComputerChoice();
+// const computerPlay = getComputerChoice(); // J'ai également supprimé cette variable, si j'ai besoin de cette fonction j'ai juste à la recall.
 
 
 
@@ -45,7 +52,7 @@ function playRound(playerSelection, computerSelection) {
     if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
         (playerSelection == 'paper' && computerSelection == 'rock') ||
         (playerSelection == 'scissors' && computerSelection == 'paper')) {
-        result = ('You win ! ' + playerSelection + ' beats ' + computerSelection);
+        result = ('You win ! ' + playerSelection + ' beats ' + computerSelection);  // RIEN NA ETE TOUCHE ICI
 
     } else if (playerSelection == computerSelection) {
         result = ("It's a tie !");
@@ -63,9 +70,9 @@ function game() {
     let playerScore = 0;
     let computerScore = 0;
     let playerTurn = '';
-    let computerTurn = '';
+    let computerTurn = ''; // Ici j'ai rajouté cette variable vide pour pouvoir la définir plus tard dans ma for loop
 
-    // let playerInput = prompt('Choose one among those choices :\nRock\nPaper\nScissors').toLowerCase().trim();
+
 
 
     for (i = 0; i < 5; i++) {
@@ -76,7 +83,9 @@ function game() {
 
 
         playerTurn = playerInput;
-        computerTurn = getComputerChoice();
+        computerTurn = getComputerChoice(); // et enfin dans ma for loop, au lieu de passé par la variable computerPlay que j'ai supprimé au dessus qui call getComputerChoice(), 
+        // j'ai directement call la fonction dans ma for loop, ce qui a activé le fait de randomisé une valeur à chaque loop :)
+
         roundResult = playRound(playerTurn, computerTurn);
 
         if (roundResult.includes("You win")) {
@@ -110,8 +119,3 @@ console.log(game());
 
 
 
-//  Helper function
-
-// function random(Number) {
-//     return Math.floor(Math.random() * Number + 1);
-// }
