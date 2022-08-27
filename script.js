@@ -16,7 +16,7 @@
 // }
 
 
-confirm('Press CTRL + SHIFT + i to open the console and use F5 to refresh before playing !');
+confirm('Press CTRL + SHIFT + i to open the console and use F5 to refresh before playing !\nPress OK to play 5 round');
 
 function getComputerChoice() {
     let computerNumber = Math.floor(Math.random() * 3 + 1); // J'ai supprimé la fonction ci dessus et j'ai implémenter le Math.random directement dans une variable dans mon switch statement.
@@ -79,7 +79,7 @@ function game() {
 
         do {
             var playerInput = prompt('Choose one among those choices :\nRock\nPaper\nScissors').toLowerCase().trim();
-        } while (playerInput == '' || playerInput == null)
+        } while (playerInput != 'rock' && playerInput != 'paper' && playerInput != 'scissors')
 
 
         playerTurn = playerInput;
