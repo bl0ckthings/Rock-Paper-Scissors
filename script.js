@@ -16,7 +16,7 @@
 // }
 
 
-confirm('Press CTRL + SHIFT + i to open the console and use F5 to refresh before playing !\nPress OK to play 5 round');
+
 
 function getComputerChoice() {
     let computerNumber = Math.floor(Math.random() * 3 + 1); // J'ai supprimé la fonction ci dessus et j'ai implémenter le Math.random directement dans une variable dans mon switch statement.
@@ -65,6 +65,7 @@ function playRound(playerSelection, computerSelection) {
 
 
 
+
 function game() {
     let roundResult = '';
     let playerScore = 0;
@@ -74,48 +75,36 @@ function game() {
 
 
 
+    playerTurn = "";
+    computerTurn = getComputerChoice(); // et enfin dans ma for loop, au lieu de passé par la variable computerPlay que j'ai supprimé au dessus qui call getComputerChoice(),
+    // j'ai directement call la fonction dans ma for loop, ce qui a activé le fait de randomisé une valeur à chaque loop :)
 
-    for (i = 0; i < 5; i++) {
+    roundResult = playRound(playerTurn, computerTurn);
 
-        do {
-            var playerInput = prompt('Choose one among those choices :\nRock\nPaper\nScissors').toLowerCase().trim();
-        } while (playerInput != 'rock' && playerInput != 'paper' && playerInput != 'scissors')
+    if (roundResult.includes("You win")) {
+        playerScore++;
+        console.log(roundResult + " The score is " + playerScore + " - " + computerScore);
 
-
-        playerTurn = playerInput;
-        computerTurn = getComputerChoice(); // et enfin dans ma for loop, au lieu de passé par la variable computerPlay que j'ai supprimé au dessus qui call getComputerChoice(), 
-        // j'ai directement call la fonction dans ma for loop, ce qui a activé le fait de randomisé une valeur à chaque loop :)
-
-        roundResult = playRound(playerTurn, computerTurn);
-
-        if (roundResult.includes("You win")) {
-            playerScore++;
-            console.log(roundResult + " The score is " + playerScore + " - " + computerScore);
-
-        } else if (roundResult.includes("You lose")) {
-            computerScore++;
-            console.log(roundResult + " The score is " + playerScore + " - " + computerScore);
-        }
-        else if (roundResult.includes("tie")) {
-            i -= 1;
-            console.log(roundResult + " The score is " + playerScore + " - " + computerScore);
-        }
-        if (i < 4) {
-            confirm("Wanna play again ?");
-        }
-
+    } else if (roundResult.includes("You lose")) {
+        computerScore++;
+        console.log(roundResult + " The score is " + playerScore + " - " + computerScore);
     }
-    if (playerScore > computerScore) {
-        console.log("Game Over ! Player win ! The final score is " + playerScore + " - " + computerScore + " !");
-    } else if (playerScore < computerScore) {
-        console.log("Game Over ! Computer win ! The final score is " + computerScore + " - " + playerScore + " !");
-    } else {
-        console.log("It's a tie ! The final score is " + playerScore + ' - ' + computerScore);
+    else if (roundResult.includes("tie")) {
+        console.log(roundResult + " The score is " + playerScore + " - " + computerScore);
     }
-
 
 }
-console.log(game());
+if (playerScore > computerScore) {
+    console.log("Game Over ! Player win ! The final score is " + playerScore + " - " + computerScore + " !");
+} else if (playerScore < computerScore) {
+    console.log("Game Over ! Computer win ! The final score is " + computerScore + " - " + playerScore + " !");
+} else {
+    console.log("It's a tie ! The final score is " + playerScore + ' - ' + computerScore);
+}
+
+
+
+
 
 
 

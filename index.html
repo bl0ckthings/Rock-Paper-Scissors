@@ -6,11 +6,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script src="./script.js"></script>
+    <script src="./newUIgame.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
 </head>
 
 <body>
+    <header>
+        <h1 class="title">WELCOME TO ROCK PAPERS AND SCISSORS !</h1>
+    </header>
+    <div class="btn-container">
+        <button class="btn" id="rock">Rock</button>
+        <button class="btn" id="paper">Paper</button>
+        <button class="btn" id="scissors">Scissors</button>
+    </div>
 
+
+    <div class="scores">
+        <div class="text" id="player-score">Player Score : </div>
+        <div class="text" id="computer-score">Computer Score : </div>
+    </div>
+    <div class="div">
+        <div class="result" id="output">Good luck !</div>
+    </div>
 </body>
 
 </html>

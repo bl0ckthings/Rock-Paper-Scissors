@@ -4,6 +4,13 @@ let playerChoice;
 
 const buttons = document.querySelectorAll('.btn');
 const output = document.querySelector('.result');
+const player = document.querySelector('#player-score');
+player.textContent = `Player Score : ${playerScore}`;
+const computer = document.querySelector('#computer-score');
+computer.textContent = `Computer Score : ${computerScore}`;
+
+
+
 
 
 
@@ -33,12 +40,14 @@ function playRound(playerSelection, computerSelection) {
 
     computerSelection = getComputerChoice();
 
+
     if ((playerSelection == 'rock' && computerSelection == 'scissors') ||
         (playerSelection == 'paper' && computerSelection == 'rock') ||
-        (playerSelection == 'scissors' && computerSelection == 'paper')) {
-        output.textContent = `Player Win ! The ${playerSelection} beats the ${computerSelection} !`;
+        (playerSelection == 'scissors' && computerSelection == 'paper')
+    ) {
+        output.textContent = `Player win the round ! The ${playerSelection} beats the ${computerSelection} !`;
         playerScore++;
-
+        player.textContent = `Player Score : ${playerScore}`;
 
 
 
@@ -46,14 +55,42 @@ function playRound(playerSelection, computerSelection) {
         output.textContent = (`It's a tie ! ${computerSelection} against ${computerSelection}`);
 
     } else {
-        output.textContent = (`Computer Win ! The ${computerSelection} beats the ${playerSelection}`);
+        output.textContent = (`Computer win the round ! The ${computerSelection} beats the ${playerSelection}`);
         computerScore++;
+        computer.textContent = `Computer Score : ${computerScore}`;
+    }
+
+    if (playerScore == 5) {
+        output.textContent = `You won ! What a chad ! The score final  is ${playerScore} - ${computerScore} !`;
+        output.style.color = 'white';
+        output.style.border = '1px solid black';
+        output.style.background = 'black';
+        playerScore = 0;
+        computerScore = 0;
+        player.textContent = `Player Score : ${playerScore}`;
+
+        computer.textContent = `Computer Score : ${computerScore}`;
+
+
+
+    } else if (computerScore == 5) {
+        output.textContent = `Ugh ! You lost ! You suck bro. The final score is ${playerScore} - ${computerScore} !`;
+        output.style.color = 'white';
+        output.style.border = '1px solid black';
+        output.style.background = 'black';
+        playerScore = 0;
+        computerScore = 0;
+        player.textContent = `Player Score : ${playerScore}`;
+        computer.textContent = `Computer Score : ${computerScore}`;
+
+
+
     }
 
 
 }
 
-console.log(computerScore);
+
 
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', () => {
@@ -64,14 +101,3 @@ for (let i = 0; i < buttons.length; i++) {
 }
 
 
-
-
-// buttons.array.forEach((button) => {
-//     button.addEventListener('click', () => {
-
-//         playerChoice = button.id;
-//         console.log(playRound(playerChoice));
-//     });
-
-
-// });
