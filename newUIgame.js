@@ -88,6 +88,7 @@ function playRound(playerSelection, computerSelection) {
     }
 
 
+
 }
 
 
@@ -95,7 +96,7 @@ function playRound(playerSelection, computerSelection) {
 for (let i = 0; i < buttons.length; i++) {
     buttons[i].addEventListener('click', () => {
         playerChoice = buttons[i].id;
-        console.log(playRound(playerChoice));
+        playRound(playerChoice);
 
     })
 }
