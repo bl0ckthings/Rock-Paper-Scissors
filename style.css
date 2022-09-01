@@ -76,3 +76,9 @@ button:active {
     display: flex;
     justify-content: center;
 }
+
+.anim {
+    height: 200px;
+    width: 200Px;
+    cursor: pointer;
+}

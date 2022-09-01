@@ -101,4 +101,13 @@ for (let i = 0; i < buttons.length; i++) {
     })
 }
 
+let picture = ["./img/glasse-anim.gif"];
+
+let index = document.querySelector('.anim')
+
+index.addEventListener('click', () => {
+    index.src = picture[0];
+})
+
+
 
