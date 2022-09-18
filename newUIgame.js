@@ -101,13 +101,23 @@ for (let i = 0; i < buttons.length; i++) {
     })
 }
 
-let picture = ["./img/glasse-anim.gif"];
+let picture = ["./img/glasse-anim.gif", "./img/0022.png", "./img/sleep.gif", "./img/0001.png"];
 
-let index = document.querySelector('.anim')
+let index = document.querySelector('#glasses');
 
-index.addEventListener('click', () => {
+index.addEventListener('mouseover', () => {
     index.src = picture[0];
 })
 
 
+index.addEventListener('mouseout', () => {
+    index.src = picture[1];
+})
+let index2 = document.querySelector('#sleep');
+index2.addEventListener('mouseover', () => {
+    index2.src = picture[2];
+})
 
+index2.addEventListener('mouseout', () => {
+    index2.src = picture[3];
+})
