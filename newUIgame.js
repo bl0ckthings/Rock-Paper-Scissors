@@ -5,12 +5,23 @@ let playerChoice;
 const buttons = document.querySelectorAll('.btn');
 const output = document.querySelector('.result');
 const player = document.querySelector('#player-score');
-player.textContent = `Player Score : ${playerScore}`;
+
 const computer = document.querySelector('#computer-score');
-computer.textContent = `Computer Score : ${computerScore}`;
+
+const playerText = document.querySelector('#player');
+const computerText = document.querySelector('#computer');
+const resetBtn = document.querySelector('.reset-btn');
 
 
 
+resetBtn.addEventListener('click', () => {
+
+
+    output.classList.remove('final-text');
+    output.textContent = 'Have fun !';
+
+
+})
 
 
 
@@ -47,7 +58,8 @@ function playRound(playerSelection, computerSelection) {
     ) {
         output.textContent = `Player win the round ! The ${playerSelection} beats the ${computerSelection} !`;
         playerScore++;
-        player.textContent = `Player Score : ${playerScore}`;
+        player.textContent = playerScore;
+
 
 
 
@@ -57,31 +69,27 @@ function playRound(playerSelection, computerSelection) {
     } else {
         output.textContent = (`Computer win the round ! The ${computerSelection} beats the ${playerSelection}`);
         computerScore++;
-        computer.textContent = `Computer Score : ${computerScore}`;
+        computer.textContent = computerScore;
     }
 
     if (playerScore == 5) {
         output.textContent = `You won ! What a chad ! The score final  is ${playerScore} - ${computerScore} !`;
-        output.style.color = 'white';
-        output.style.border = '1px solid black';
-        output.style.background = 'black';
+        output.classList.add("final-text");
         playerScore = 0;
         computerScore = 0;
-        player.textContent = `Player Score : ${playerScore}`;
+        player.textContent = playerScore;
 
-        computer.textContent = `Computer Score : ${computerScore}`;
+        computer.textContent = computerScore;
 
 
 
     } else if (computerScore == 5) {
         output.textContent = `Ugh ! You lost ! You suck bro. The final score is ${playerScore} - ${computerScore} !`;
-        output.style.color = 'white';
-        output.style.border = '1px solid black';
-        output.style.background = 'black';
+        output.classList.add("final-text");
         playerScore = 0;
         computerScore = 0;
-        player.textContent = `Player Score : ${playerScore}`;
-        computer.textContent = `Computer Score : ${computerScore}`;
+        player.textContent = playerScore;
+        computer.textContent = computerScore;
 
 
 
@@ -89,7 +97,12 @@ function playRound(playerSelection, computerSelection) {
 
 
 
+
+
 }
+
+
+
 
 
 
@@ -98,26 +111,7 @@ for (let i = 0; i < buttons.length; i++) {
         playerChoice = buttons[i].id;
         playRound(playerChoice);
 
+
     })
 }
 
-let picture = ["./img/glasse-anim.gif", "./img/0022.png", "./img/sleep.gif", "./img/0001.png"];
-
-let index = document.querySelector('#glasses');
-
-index.addEventListener('mouseover', () => {
-    index.src = picture[0];
-})
-
-
-index.addEventListener('mouseout', () => {
-    index.src = picture[1];
-})
-let index2 = document.querySelector('#sleep');
-index2.addEventListener('mouseover', () => {
-    index2.src = picture[2];
-})
-
-index2.addEventListener('mouseout', () => {
-    index2.src = picture[3];
-})

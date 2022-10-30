@@ -1,13 +1,19 @@
 html {
     background: rgb(85, 85, 85);
-    background: radial-gradient(circle, rgba(85, 85, 85, 1) 0%, rgba(51, 51, 51, 1) 100%);
+    background: radial-gradient(circle, rgb(145, 144, 144) 0%, rgba(51, 51, 51, 1) 100%);
 }
 
 body {
     margin: 0px;
     padding: 0px;
+    box-sizing: border-box;
 
+}
 
+main,
+.text,
+div {
+    font-family: 'Poor Story', cursive;
 }
 
 header {
@@ -67,27 +73,38 @@ button:active {
     background-color: lightgray;
 }
 
+
+.main-container {
+    display: flex;
+    justify-content: center;
+    margin-left: 40px;
+}
+
 .scores {
     font-family: 'Ubuntu', sans-serif;
     color: black;
     font-size: 30px;
     font-weight: 300px;
     display: flex;
-    justify-content: center;
     margin-top: 30px;
     gap: 30px;
+    padding: 0px 10px 0px 10px;
+    border: 2px solid black;
+    /* width: 20%; */
+    border-radius: 10px;
+
 }
 
-.div {
+.container {
     display: flex;
     justify-content: center;
+
 }
 
 .result {
 
     margin-top: 3%;
-    font-family: 'Ubuntu', sans-serif;
-    font-size: 30px;
+    font-size: 2em;
     padding: 10px;
     border-radius: 10px;
 }
@@ -101,4 +118,46 @@ button:active {
     height: 200px;
     width: 200Px;
     cursor: pointer;
+}
+
+#computer-score {
+    border-left: 2px solid #5A67D8;
+
+    padding-left: 7px;
+}
+
+.title-score {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    font-size: 3em;
+}
+
+.score {
+    font-weight: bold;
+}
+
+.final-text {
+    color: white;
+    border: 1px solid black;
+    background-color: black;
+}
+
+
+.reset-container {
+    display: flex;
+    justify-content: center;
+}
+
+.reset-btn {
+    font-size: 20px;
+    border: 1px solid black;
+    padding: 4px 8px 4px 8px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.reset-btn:hover {
+    background-color: white;
 }
