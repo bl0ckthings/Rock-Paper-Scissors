@@ -150,14 +150,16 @@ button:active {
 }
 
 .reset-btn {
-    font-size: 20px;
+    font-size: 30px;
     border: 1px solid black;
     padding: 4px 8px 4px 8px;
     border-radius: 10px;
     cursor: pointer;
     margin-top: 10px;
+
 }
 
 .reset-btn:hover {
     background-color: white;
+
 }

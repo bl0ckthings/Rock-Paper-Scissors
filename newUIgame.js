@@ -15,8 +15,10 @@ const resetBtn = document.querySelector('.reset-btn');
 
 
 resetBtn.addEventListener('click', () => {
-
-
+    computerScore = 0;
+    playerScore = 0;
+    player.textContent = playerScore;
+    computer.textContent = computerScore;
     output.classList.remove('final-text');
     output.textContent = 'Have fun !';
 
@@ -80,7 +82,7 @@ function playRound(playerSelection, computerSelection) {
         player.textContent = playerScore;
 
         computer.textContent = computerScore;
-
+        document.querySelectorAll('.btn').disabled = true;
 
 
     } else if (computerScore == 5) {
@@ -90,7 +92,7 @@ function playRound(playerSelection, computerSelection) {
         computerScore = 0;
         player.textContent = playerScore;
         computer.textContent = computerScore;
-
+        document.querySelectorAll('.btn').disabled = true;
 
 
     }
